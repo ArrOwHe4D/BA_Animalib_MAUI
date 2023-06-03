@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="Animalib.Pages.SettingsPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Animalib.Pages"
+             xmlns:viewmodels="clr-namespace:Animalib.ViewModels"
+             x:DataType="viewmodels:SettingsPageViewModel">
+
+    <ContentPage.BindingContext>
+        <viewmodels:SettingsPageViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout >
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+            <Image Source="icon_title_settings.png" HeightRequest="40" WidthRequest="40"/>
+            <Label Text="Settings" FontSize="40"/>
+        </HorizontalStackLayout>
+
+        <Border WidthRequest="400"
+            HeightRequest="720"
+            Stroke="{StaticResource BackgroundGrey}"
+            StrokeThickness="3"
+            BackgroundColor="{StaticResource BackgroundGrey}"
+            StrokeShape="RoundRectangle 20">
+
+            <ScrollView>
+                <VerticalStackLayout Spacing="10" Padding="10">
+                    <HorizontalStackLayout Padding="10,0,0,0">
+                        <Image Source="icon_battery.png" HeightRequest="40" WidthRequest="40" HorizontalOptions="Start" />
+                        <Label Text="Battery Info" TextColor="{StaticResource MintGreen}" FontSize="30" Padding="10,0,0,0"/>
+                    </HorizontalStackLayout>
+
+                    <Label Text="{Binding BatteryPercentage, StringFormat='Charge Level: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding BatteryStatus, StringFormat='Status: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding PowerSource, StringFormat='Power Source: {0}'}" Padding="10,5,0,0"/>
+
+                    <HorizontalStackLayout Padding="10,0,0,0">
+                        <Image Source="icon_screen.png" HeightRequest="40" WidthRequest="40" HorizontalOptions="Start" />
+                        <Label Text="Display Info" TextColor="{StaticResource MintGreen}" FontSize="30" Padding="10,0,0,0"/>
+                    </HorizontalStackLayout>
+
+                    <Label Text="{Binding DisplayWidth, StringFormat='Width: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding DisplayHeight, StringFormat='Height: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding DisplayOrientation, StringFormat='Orientation: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding DisplayRotation, StringFormat='Rotation: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding DisplayRefreshRate, StringFormat='Refresh-Rate: {0}'}" Padding="10,5,0,0"/>
+
+                    <HorizontalStackLayout Padding="10,0,0,0">
+                        <Image Source="icon_device.png" HeightRequest="40" WidthRequest="40" HorizontalOptions="Start" />
+                        <Label Text="Device Info" TextColor="{StaticResource MintGreen}" FontSize="30" Padding="10,0,0,0"/>
+                    </HorizontalStackLayout>
+
+                    <Label Text="{Binding DevicePlatform, StringFormat='Platform: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding DeviceOsVersion, StringFormat='OS Version: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding DeviceType, StringFormat='Type: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding DeviceIdiom, StringFormat='Idiom: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding DeviceModel, StringFormat='Model: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding DeviceManufacturer, StringFormat='Manufacturer: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding DeviceName, StringFormat='Name: {0}'}" Padding="10,5,0,0"/>
+
+                    <HorizontalStackLayout Padding="10,0,0,0">
+                        <Image Source="icon_camera.png" HeightRequest="40" WidthRequest="40" HorizontalOptions="Start" />
+                        <Label Text="Camera" TextColor="{StaticResource MintGreen}" FontSize="30" Padding="10,0,0,0"/>
+                    </HorizontalStackLayout>
+
+                    <Button WidthRequest="200" 
+                            BackgroundColor="{StaticResource MintGreen}" 
+                            Text="Take Picture" 
+                            TextColor="White" 
+                            Command="{Binding takePictureCommand}"                            
+                            HorizontalOptions="Start"
+                            Margin="10,0,0,0"/>
+
+                    <HorizontalStackLayout>
+                        <Label Text="Flashlight: " Padding="10,5,0,0"/>
+                        <Switch x:Name="SwitchFlashlight" Toggled="SwitchFlashlight_Toggled" Margin="10,-8,0,0"/>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Padding="10,0,0,0">
+                        <Image Source="icon_title_regions.png" HeightRequest="40" WidthRequest="40" HorizontalOptions="Start" />
+                        <Label Text="Location" TextColor="{StaticResource MintGreen}" FontSize="30" Padding="10,0,0,0"/>
+                    </HorizontalStackLayout>
+
+                    <Label Text="{Binding CurrentLocationLatitude, StringFormat='Current Location Lat: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding CurrentLocationLongitude, StringFormat='Current Location Lon: {0}'}" Padding="10,5,0,0"/>
+
+                    <Button WidthRequest="200" 
+                            BackgroundColor="{StaticResource MintGreen}" 
+                            Text="Get Current Location" 
+                            TextColor="White" 
+                            Command="{Binding getCurrentLocationCommand}"                            
+                            HorizontalOptions="Start"
+                            Margin="10,0,0,0"/>
+
+                    <Label Text="Address: Steinmüllerallee 1, 51643 Gummersbach" Padding="10,5,0,0"/>
+                    <Label Text="{Binding LatitudeTest, StringFormat='Latitude: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding LongitudeTest, StringFormat='Longitude: {0}'}" Padding="10,5,0,0"/>
+
+                    <Button WidthRequest="200" 
+                            BackgroundColor="{StaticResource MintGreen}" 
+                            Text="Get TH-Köln Location" 
+                            TextColor="White" 
+                            Command="{Binding getLocationByAddressCommand}"
+                            CommandParameter="Steinmüllerallee 1, 51643 Gummersbach"
+                            HorizontalOptions="Start"
+                            Margin="10,0,0,0"/>
+
+                    <Label Text="Address Location: 51.0230325, 7.5618184" Padding="10,5,0,0"/>
+                    <Label Text="{Binding RetrievedAddress, StringFormat='Address: {0}'}" Padding="10,5,0,0"/>
+
+                    <Button WidthRequest="200" 
+                            BackgroundColor="{StaticResource MintGreen}" 
+                            Text="Get TH-Köln Address" 
+                            TextColor="White" 
+                            Command="{Binding getAddressByLocationCommand}"
+                            CommandParameter="51,0230325/7,5618184"
+                            HorizontalOptions="Start"
+                            Margin="10,0,0,0"/>
+
+                    <HorizontalStackLayout Padding="10,0,0,0">
+                        <Image Source="icon_sensors.png" HeightRequest="40" WidthRequest="40" HorizontalOptions="Start" />
+                        <Label Text="Sensors" TextColor="{StaticResource MintGreen}" FontSize="30" Padding="10,0,0,0"/>
+                    </HorizontalStackLayout>
+
+                    <Label Text="Gyroscope: " Padding="10,5,0,0"/>
+                    <Label x:Name="LabelGyroscope" TextColor="{StaticResource MintGreen}" Text="" Padding="10,5,0,0"/>
+                    <Switch x:Name="SwitchGyroscope" Toggled="SwitchGyroscope_Toggled" Margin="5,-8,0,0" HorizontalOptions="Start"/>
+
+                    <Label Text="Barometer: " Padding="10,5,0,0"/>
+                    <Label x:Name="LabelBarometer" TextColor="{StaticResource MintGreen}" Text="" Padding="10,5,0,0"/>
+                    <Switch x:Name="SwitchBarometer" Toggled="SwitchBarometer_Toggled" Margin="5,-8,0,0" HorizontalOptions="Start"/>
+
+                    <Label Text="Accelerometer: " Padding="10,5,0,0"/>
+                    <Label x:Name="LabelAccelerometer" TextColor="{StaticResource MintGreen}" Text="" Padding="10,5,0,0"/>
+                    <Switch x:Name="SwitchAccelerometer" Toggled="SwitchAccelerometer_Toggled" Margin="5,-8,0,0" HorizontalOptions="Start"/>
+
+                    <Label Text="Magnetometer: " Padding="10,5,0,0"/>
+                    <Label x:Name="LabelMagnetometer" TextColor="{StaticResource MintGreen}" Text="" Padding="10,5,0,0"/>
+                    <Switch x:Name="SwitchMagnetometer" Toggled="SwitchMagnetometer_Toggled" Margin="5,-8,0,0" HorizontalOptions="Start"/>
+
+                    <Label Text="Compass: " Padding="10,5,0,0"/>
+                    <Label x:Name="LabelCompass" TextColor="{StaticResource MintGreen}" Text="" Padding="10,5,0,0"/>
+                    <Button x:Name="ButtonReadCompass"
+                            WidthRequest="200" 
+                            BackgroundColor="{StaticResource MintGreen}" 
+                            Text="Read Compass" 
+                            TextColor="White" 
+                            Clicked="ButtonReadCompass_Clicked"
+                            HorizontalOptions="Start"
+                            Margin="10,0,0,0"/>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>

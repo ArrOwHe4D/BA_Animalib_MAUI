@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="Animalib.Pages.SpeciesPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:datamodels="clr-namespace:Animalib.DataModels"
+             xmlns:viewmodels="clr-namespace:Animalib.ViewModels"
+             xmlns:local="clr-namespace:Animalib.Pages"
+             x:DataType="viewmodels:SpeciesPageViewModel">
+
+    <ContentPage.BindingContext>
+        <viewmodels:SpeciesPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                <Image Source="icon_title_species.png" HeightRequest="40" WidthRequest="40"/>
+                <Label Text="Species" FontSize="40"/>
+            </HorizontalStackLayout>
+
+            <CollectionView ItemsSource="{Binding Species}" SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="5" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="datamodels:Species">
+                        <Border WidthRequest="395"
+                            HeightRequest="110"
+                            Stroke="{StaticResource BackgroundGrey}"
+                            StrokeThickness="3"
+                            BackgroundColor="{StaticResource BackgroundGrey}"
+                            StrokeShape="RoundRectangle 10">
+
+                            <HorizontalStackLayout Padding="5">
+                                <Border WidthRequest="100"
+                                        HeightRequest="100"
+                                        Stroke="{StaticResource MintGreen}"
+                                        StrokeThickness="2"
+                                        StrokeShape="RoundRectangle 15">
+                                    <Image Source="{Binding Image}" HeightRequest="100" WidthRequest="100" Aspect="AspectFill"/>
+                                </Border>
+
+                                <VerticalStackLayout Padding="10">
+                                    <Label Text="{Binding Name}" FontSize="20" TextColor="{StaticResource MintGreen}"/>
+                                    <Label Text="{Binding SpeciesType, StringFormat='Typ: {0}'}" FontSize="14"/>
+                                    <Label Text="{Binding AnimalCount, StringFormat='Anzahl: {0}'}" FontSize="14"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

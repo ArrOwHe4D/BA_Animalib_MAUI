@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="Animalib.Pages.AnimalDetailPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Animalib.Pages"
+             Title="{Binding Animal.Name}">
+
+    <VerticalStackLayout Spacing="10" Padding="10">
+        <Border WidthRequest="400"
+                HeightRequest="300"
+                Stroke="{StaticResource MintGreen}"
+                StrokeThickness="3"
+                BackgroundColor="{StaticResource BackgroundGrey}"
+                StrokeShape="RoundRectangle 20">
+            <Image Source="{Binding Animal.Image}" WidthRequest="400" HeightRequest="300" Aspect="AspectFill"/>
+        </Border>
+
+        <Border WidthRequest="400"
+                HeightRequest="395"
+                Stroke="{StaticResource BackgroundGrey}"
+                StrokeThickness="3"
+                BackgroundColor="{StaticResource BackgroundGrey}"
+                StrokeShape="RoundRectangle 20">
+            <ScrollView>
+                <VerticalStackLayout>
+                    <Label Text="Daten" FontSize="35" TextColor="{StaticResource MintGreen}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding Animal.Name, StringFormat='Bezeichnung: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding Animal.Height, StringFormat='Größe: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding Animal.Weight, StringFormat='Gewicht: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding Animal.Species, StringFormat='Spezies: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="{Binding Animal.Regions, StringFormat='Regionen: {0}'}" Padding="10,5,0,0"/>
+                    <Label Text="Beschreibung: " FontSize="20" TextColor="{StaticResource MintGreen}" Padding="10,20,0,0"/>
+                    <Label Text="{Binding Animal.Description}" Padding="10,5,0,0"/>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>

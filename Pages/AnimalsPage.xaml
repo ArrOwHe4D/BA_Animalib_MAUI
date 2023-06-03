@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="Animalib.Pages.AnimalsPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:datamodels="clr-namespace:Animalib.DataModels"
+             xmlns:viewmodels="clr-namespace:Animalib.ViewModels"
+             xmlns:local="clr-namespace:Animalib.Pages"
+             x:DataType="viewmodels:AnimalsPageViewModel">
+
+    <ContentPage.BindingContext>
+        <viewmodels:AnimalsPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                <Image Source="icon_title_animals.png" HeightRequest="40" WidthRequest="40"/>
+                <Label Text="Animals" FontSize="40"/>
+            </HorizontalStackLayout>
+
+            <CollectionView ItemsSource="{Binding Animals}" SelectionMode="Single">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="5" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="datamodels:Animal">
+                        <Border WidthRequest="395"
+                            HeightRequest="110"
+                            Stroke="{StaticResource BackgroundGrey}"
+                            StrokeThickness="3"
+                            BackgroundColor="{StaticResource BackgroundGrey}"
+                            StrokeShape="RoundRectangle 10">
+
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:AnimalsPageViewModel}}, Path=GoToAnimalDetailPageCommand}"/>
+                            </Border.GestureRecognizers>
+
+                            <HorizontalStackLayout Padding="5">
+                                <Border WidthRequest="100"
+                                        HeightRequest="100"
+                                        Stroke="{StaticResource MintGreen}"
+                                        StrokeThickness="2"
+                                        StrokeShape="RoundRectangle 15">
+                                    <Image Source="{Binding Image}" HeightRequest="100" WidthRequest="100" Aspect="AspectFill"/>
+                                </Border>
+
+                                <VerticalStackLayout Padding="10">
+                                    <Label Text="{Binding Name}" FontSize="20" TextColor="{StaticResource MintGreen}"/>
+                                    <Label Text="{Binding Regions, StringFormat='Regionen: {0}'}" FontSize="14"/>
+                                    <Label Text="{Binding Species, StringFormat='Spezies: {0}'}" FontSize="14"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

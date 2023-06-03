@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:Class="Animalib.MainPage">
+
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="{StaticResource MintGreen}" StatusBarStyle="DarkContent" />
+    </Page.Behaviors>
+
+    <VerticalStackLayout Spacing="10" Padding="20" VerticalOptions="Start">
+        
+        <Border WidthRequest="395"
+                HeightRequest="120"
+                Stroke="{StaticResource BackgroundGrey}"
+                StrokeThickness="3"
+                BackgroundColor="{StaticResource BackgroundGrey}"
+                StrokeShape="RoundRectangle 20">
+
+            <HorizontalStackLayout Spacing="10" Padding="10">
+                <Image Source="icon_bear.png" HeightRequest="100" WidthRequest="100" HorizontalOptions="Start" />
+                <Label Text="Welcome to Animalib!" SemanticProperties.HeadingLevel="Level1" FontSize="32" HorizontalOptions="Start" WidthRequest="200" />
+            </HorizontalStackLayout>
+        </Border>
+
+        <Border WidthRequest="395"
+                HeightRequest="620"
+                Stroke="{StaticResource BackgroundGrey}"
+                StrokeThickness="3"
+                BackgroundColor="{StaticResource BackgroundGrey}"
+                StrokeShape="RoundRectangle 20">
+
+            <ScrollView>
+                <VerticalStackLayout Padding="10,10,10,10" Spacing="20">
+                    <HorizontalStackLayout Spacing="10">
+                        <Image Source="icon_news.png" HeightRequest="50" WidthRequest="50" HorizontalOptions="Start" />
+                        <Label Text="News" SemanticProperties.HeadingLevel="Level2" FontSize="50" />
+                    </HorizontalStackLayout>
+
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="24.01.2023: Another £2 million funding by the UK government!" TextColor="{StaticResource MintGreen}" SemanticProperties.HeadingLevel="Level2" FontSize="18" />
+                        <Label Text="The UK government announces another £2 million in funding to protect pangolins, sharks &amp; other endangered species." SemanticProperties.HeadingLevel="Level2" FontSize="16" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="20.01.2023: 40 Starving Sheep have been Saved from a Backyard!" TextColor="{StaticResource MintGreen}" SemanticProperties.HeadingLevel="Level2" FontSize="18" />
+                        <Label Text="40 Starving Sheep Have Been Saved From A Backyard Slaughter Operation In New York’s Hudson Valley." SemanticProperties.HeadingLevel="Level2" FontSize="16" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="19.01.2023: New York bans sale of cosmetics tested on animals!" TextColor="{StaticResource MintGreen}" SemanticProperties.HeadingLevel="Level2" FontSize="18" />
+
+                        <Label Text="Victory! New York becomes the 10th state in the U.S. to Ban the sale of cosmetics tested on animals" SemanticProperties.HeadingLevel="Level2" FontSize="16" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="18.01.2023: 2 Pandas saved moving to Sanctuary in China" TextColor="{StaticResource MintGreen}" SemanticProperties.HeadingLevel="Level2" FontSize="18" />
+                        <Label Text="Victory! Suffering pandas Yaya &amp; Lele at the memphis zoo will finally be sent to a sanctuary in china." SemanticProperties.HeadingLevel="Level2" FontSize="16" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="17.01.2023: Biden signs the shark fin sales elimination act" TextColor="{StaticResource MintGreen}" SemanticProperties.HeadingLevel="Level2" FontSize="18" />
+                        <Label Text="Victory! President Biden signs the shark fin sales elimination act helping to protect sharks in the U.S." SemanticProperties.HeadingLevel="Level2" FontSize="16" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="17.01.2023: Three chimpanzees shot!" TextColor="{StaticResource MintGreen}" SemanticProperties.HeadingLevel="Level2" FontSize="18" />
+                        <Label Text="Breaking! Three chimpanzees are shot &amp; killed after escaping from their enclosure at a swedish zoo." SemanticProperties.HeadingLevel="Level2" FontSize="16" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="15.01.2023: Stricter animal welfare laws in Queensland Australia" TextColor="{StaticResource MintGreen}" SemanticProperties.HeadingLevel="Level2" FontSize="18" />
+                        <Label Text="Queensland, Australia, passes stricter animal welfare laws for the first time in more than two decades." SemanticProperties.HeadingLevel="Level2" FontSize="16" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="13.01.2023: New Research on climate impact of factory farming in Canada" TextColor="{StaticResource MintGreen}" SemanticProperties.HeadingLevel="Level2" FontSize="18" />
+                        <Label Text="First-of-its-Kind research reveals the staggering impact factory farming in Canada has on our climate." SemanticProperties.HeadingLevel="Level2" FontSize="16" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="12.01.2023: £4 million funding by the UK government!" TextColor="{StaticResource MintGreen}" SemanticProperties.HeadingLevel="Level2" FontSize="18" />
+                        <Label Text="The UK government announces £4 million in funding to protect pangolins, sharks &amp; other endangered species." SemanticProperties.HeadingLevel="Level2" FontSize="16" />
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>
